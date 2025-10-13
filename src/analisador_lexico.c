@@ -1,39 +1,16 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "../include/analisador_lexico.h"
 
-typedef struct cadeia {
+
+typedef struct _Cadeia_ {
     char *str;
     int length;
 } Cadeia;
 
-typedef struct analise {
+typedef struct _Analise_ {
     int tamanho;
     int aceite;
 } Analise;
 
-Analise analisador_lexico(Cadeia cadeia);
-Analise analise_lexica(Cadeia cadeia);
-Analise fluxo_lexico(Cadeia cadeia);
-int aceita_digito_numerico(char c);
-
-void imprimir_lexema(Cadeia cadeia, Analise analise) {
-    for (int i = 0; i < analise.tamanho; i++) {
-        printf("%c", cadeia.str[i]);
-    }
-    printf("\n");
-}
-
-int main(int argc, char *argv[]) {
-
-    Cadeia cadeia = {
-        argv[1],
-        4
-    };
-    Analise analise = analisador_lexico(cadeia);
-
-    imprimir_lexema(cadeia, analise);
-    return 0;
-}
 
 Analise analisador_lexico(Cadeia cadeia) {
     return analise_lexica(cadeia);
