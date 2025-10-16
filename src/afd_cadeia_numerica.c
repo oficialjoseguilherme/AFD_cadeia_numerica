@@ -126,3 +126,11 @@ Analise fluxo_lexico(Cadeia cadeia) {
 
     return analise;
 }
+
+Analise analise_lexica(Cadeia cadeia) {
+    return fluxo_lexico(cadeia);
+}
+
+Analise analisador_lexico(Cadeia cadeia) {
+    return analise_lexica(cadeia);  
+}
