@@ -1,20 +1,7 @@
 #include "../include/analisador_lexico.h"
-
-typedef struct _Cadeia_ {
-    char *str;
-    int length;
-} Cadeia;
-
-typedef enum _Aceite_ {
-    NAO_ACEITO,
-    ACEITO
-} Aceite;
-
-typedef struct _Analise_ {
-    int avanco;
-    int posicao_inicio;
-    Aceite aceite;
-} Analise;
+#include "../include/aceite.h"
+#include "../include/analise.h"
+#include "../include/cadeia.h"
 
 typedef enum _Estado_ {
     LEITURA_ANTERIOR,

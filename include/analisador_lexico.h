@@ -1,6 +1,8 @@
 #ifndef ANALISADOR_LEXICO_H_
 #define ANALISADOR_LEXICO_H_
 
+typedef enum _Aceite_ Aceite;
+
 typedef struct _Analise_ Analise;
 
 typedef struct _Cadeia_ Cadeia;

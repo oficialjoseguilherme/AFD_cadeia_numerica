@@ -1,27 +1,34 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "../include/analisador_lexico.h"
-
-// typedef struct _Cadeia_ {
-//     char *str;
-//     int length;
-// } Cadeia;
-
+#include "../include/aceite.h"
+#include "../include/analise.h"
+#include "../include/cadeia.h"
 
 void imprimir_lexema(Cadeia cadeia, Analise analise) {
-    for (int i = 0; i < analise.tamanho; i++) {
+    if (analise.aceite == NAO_ACEITO) {
+        printf("Lexema não encontrado.");
+        return;
+    }
+
+    printf("Lexema encontrado: '");
+    for (int i = analise.posicao_inicio; i < analise.avanco; i++) {
         printf("%c", cadeia.str[i]);
     }
-    printf("\n");
+    printf("'\n");
 }
+
+Cadeia ler_cadeia(const char *titulo_leitura, const int chars_quantity);
+int length_until_end(const char *str);
+char *copy_string(const char *str, int length);
 
 int main(int argc, char *argv[]) {
 
+    const char *titulo_leitura = "Digite a entrada para o autômato: ";
+    const int chars_quantity = 100;
 
-    Cadeia cadeia = {
-        argv[1],
-        4
-    };
+    Cadeia cadeia = ler_cadeia(titulo_leitura, chars_quantity);
+    
     Analise analise = analisador_lexico(cadeia);
 
     imprimir_lexema(cadeia, analise);
@@ -79,13 +86,13 @@ int length_until_end(const char *str) {
 }
 
 char *copy_string(const char *str, int length) {
-    char *new_string = (char *)malloc(sizeof(size * 1));
+    char *new_string = (char *)malloc(sizeof(length * 1));
     
     if (!new_string) {
         return NULL;
     }
 
-    for (int i = 0, i < size; i++) {
+    for (int i = 0; i < length; i++) {
         new_string[i] = str[i];
     }
 
